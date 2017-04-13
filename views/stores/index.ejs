@@ -1,0 +1,22 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Stores</li>
+  </ol>
+  <h1>All Stores</h1>  
+  <a href="/stores/new"><button type="button" class="btn btn-success" style="margin-bottom: 7px;">Add a Store</button></a>
+  <div class="jumbotron">
+    <!-- TODO: highlight some nearby stores -->
+  </div>
+  <div class="list-group">
+    <% stores.forEach(function(store) { %>
+      <a href="/stores/<%= store._id %>" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= store.name %></h4>
+        <p class="list-group-item-text"><%= store.description.substr(0, 97) %><%= store.description.length > 97 ? "..." : ""%></p>
+      </a>
+    <% }); %>
+  </div>
+
+<% include ../partials/footer.ejs %>

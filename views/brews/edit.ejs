@@ -1,0 +1,50 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/brews">Beers</a></li>
+    <li><a href="/brews/<%= brew._id %>"><%= brew.name %></a></li>
+    <li class="active">Edit</li>
+  </ol>
+
+  <div class="row">
+    <h1>Edit <%= brew.name %></h1>
+    <form action="/brews/<%= brew._id %>?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="editName">Name</label>
+        <input class="form-control" id="editName" type="text" name="name" value="<%= brew.name %>">
+      </div>
+      <div class="form-group">
+        <label for="editBrewery">Brewery</label>
+        <input class="form-control" id="editBrewery" type="text" name="brewery" value="<%= brew.brewery %>">
+      </div>
+      <div class="form-group">
+        <label for="editLocation">Brewery Location</label>
+        <input class="form-control" id="editLocation" type="text" name="breweryLocation" value="<%= brew.breweryLocation %>">
+      </div>
+      <div class="form-group">
+        <label for="editBAURL">BeerAdvocate Page</label>
+        <input class="form-control" id="editBAURL" type="text" name="beerAdvocateURL" value="<%= brew.beerAdvocateURL %>">
+      </div>
+      <div class="form-group">
+        <label for="editImage">Image</label>
+        <input class="form-control" id="editImage" type="text" name="image" value="<%= brew.image %>">
+      </div>
+      <div class="form-group">
+        <label for="editDescription">Description</label>
+        <input class="form-control" id="editDescription" type="text" name="description" value="<%= brew.description %>">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-large btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <form id="deleteBrewForm"
+          action="/brews/<%= brew._id %>?_method=DELETE"
+          method="POST">
+      <button class="btn btn-large btn-danger">Delete this beer</button>
+    </form>
+  </div>
+</div>

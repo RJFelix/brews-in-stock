@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Brews</li>
+  </ol>
+  <h1>All Beers</h1>  
+  <a href="/brews/new"><button type="button" class="btn btn-success" style="margin-bottom: 7px;">Add a Beer</button></a>
+  <div class="row text-center">
+    <% brews.forEach(function(brew) { %>
+      <div class="col-md-3 col-sm-6">
+        <a class="thumbnail large-thumbnail brew-thumbnail" href="/brews/<%= brew._id %>">
+          <div class="brew-image">
+            <img src="<%= brew.image %>">
+          </div>
+          <div class="caption">
+            <h4><%= brew.name %></h4>
+            <h6><%= brew.brewery %>, <%= brew.breweryLocation %></h6>
+          </div>
+        </a>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,50 @@
+<% include ../partials/header.ejs %>
+
+
+<!-- search form -->
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/brews">Beers</a></li>
+    <li class="active">Add New Beer</li>
+  </ol>
+  <h1>Add a beer to the database</h1>
+  <div class="form-group">
+    <label for="beerSearch">Search with BeerAdvocate: </label>
+    <input class="form-control" type="text" id="beerSearch">
+  </div>
+  <div id="autocompleteResult"></div>
+</div>
+
+<!-- display details for selected beer -->
+
+<hr>
+<div id="selectedBeer" class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"></h3>
+    </div>
+    <div class="panel-body">
+      <form action="/brews" method="POST">
+        <div class="form-group">
+          <label for="submitBeerName">Beer Name</label>
+          <input class="form-control" id="submitBeerName" type="text" name="name">
+          <label for="submitBreweryName">Brewery Name</label>
+          <input class="form-control" id="submitBreweryName" type="text" name="brewery">
+          <label for="submitBreweryLocation">Brewery Location</label>
+          <input class="form-control" id="submitBreweryLocation" type="text" name="breweryLocation">
+          <label for="submitBeerURL">BeerAdvocate URL</label>
+          <input class="form-control" id="submitBeerURL" type="text" name="beerAdvocateURL">
+          <label for="submitBeerImage">Picture</label>
+          <input class="form-control" id="submitBeerImage" type="text" name="image">
+          <label for="submitBeerDescription">Description</label>
+          <input class="form-control" id="submitBeerDescription" type="text" name="description">
+          <button class="btn btn-primary">Add Beer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/scripts/ba-autocomplete.js"></script>
+<% include ../partials/footer.ejs %>

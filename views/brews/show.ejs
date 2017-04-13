@@ -1,0 +1,28 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/brews">Beers</a></li>
+    <li class="active"><%= brew.name %></li>
+  </ol>
+  <div class="row">
+    <div class="col-md-8">
+      <h2><%= brew.name %></h2>
+      <h4><%= brew.brewery %>, <%= brew.breweryLocation %></h4>
+      <a href="/brews/<%= brew._id %>/edit"><button type="button" class="btn btn-small btn-warning">Edit this beer</button></a>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail medium-thumbnail">
+        <img class="show-brew-image" src="<%= brew.image %>">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <p><%= brew.description %></p>
+  <p><a href="<%= brew.beerAdvocateURL %>">BeerAdvocate Profile</a></p>
+  <hr>
+  <p>Available at: (local stores)</p>
+</div>
+
+<% include ../partials/footer.ejs %>
